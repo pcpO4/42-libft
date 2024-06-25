@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:54:25 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/24 21:28:03 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 10:58:20 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 #include <string.h>
 
 int main()
@@ -36,4 +36,4 @@ int main()
 	char *s2 = "atoms\0abc";
 	printf("Original: %d\n", strncmp(s1, s2, 8));
 	printf("Mio: %d", ft_strncmp(s1, s2, 8));
-}
+}*/

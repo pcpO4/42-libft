@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 10:50:28 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/24 21:48:53 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 10:59:18 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	ft_atoi(const char *nptr)
 /*#include <stdio.h>
 int main()
 {
-	char *n = "\t\v\f\r\n \f-06050";                                                                                        
-	int i1 = atoi(n);                                                                                                       
+	char *n = "\t\v\f\r\n \f-06050";
+	int i1 = atoi(n);
 	int i2 = ft_atoi(n);
 	printf("Original: %d, Mio: %d", i1, i2);
 }*/

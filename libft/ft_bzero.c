@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 21:08:53 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/23 12:35:56 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:16:41 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *b, size_t len)
 {
-	ft_memset(b, 0, len);
+	ft_memset(b, '\0', len);
 }
 
 /*int		main()

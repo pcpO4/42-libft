@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 12:03:39 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/24 12:01:14 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:12:13 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	str = malloc((len + 1) * sizeof(char));
+	i = ft_strlen((char *)s);
+	if (start > i || len == 0)
+		return (ft_strdup(""));
+	if (i - start >= len)
+		str = ft_calloc((len + 1), sizeof(char));
+	else
+		str = ft_calloc((i - start + 1), sizeof(char));
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (i < len && s[start + i] != '\0')
-	{
-		str[i] = s[start + i];
-		++i;
-	}
-	str[i] = '\0';
+	ft_strlcpy(str, (s + start), (len + 1));
 	return (str);
 }
-
 /*#include <stdio.h>
-
 int main()
 {
-	char *s = "lorem ipsum dolor";
-	printf("%s", ft_substr(s, 0, 10));
+	size_t n = 1844674407370955161;
+	printf("%s", ft_substr("hola", 0, n));
 }*/
