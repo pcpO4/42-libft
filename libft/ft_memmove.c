@@ -6,35 +6,39 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:33:56 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 22:01:12 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 22:05:40 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*dst1;
-	unsigned char	*src1;
+	char	*d;
+	char	*s;
+	size_t	i;
 
+	d = (char*)dst;
+	s = (char*)src;
 	i = 0;
-	dst1 = (unsigned char *)dst;
-	src1 = (unsigned char *)src;
-	if (dst == 0 && src == 0)
-		return (dst);
-	while (i < n && &src[0] >= &dst[0])
+	if (d == s)
+		return (d);
+	if (s < d)
 	{
-		dst1[i] = src1[i];
-		i++;
+		i = len;
+		while (i--)
+			((char*)d)[i] = ((char*)s)[i];
 	}
-	i = n;
-	while (i > 0 && &src[0] < &dst[0])
+	else
 	{
-		dst1[i - 1] = src1[i - 1];
-		i--;
+		i = 0;
+		while (i < len)
+		{
+			((char*)d)[i] = ((char*)s)[i];
+			i++;
+		}
 	}
-	return (dst);
+	return (d);
 }
 /*#include <stdio.h>
 int main  ()
