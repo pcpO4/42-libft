@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 18:48:04 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 19:03:32 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,47 @@
 static size_t	count_words(char const *s, char c)
 {
 	size_t	cnt;
-	size_t	cntc;
+	int		inword;
 	size_t	i;
 
 	cnt = 0;
 	i = 0;
-	cntc = 0;
+	inword = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-			++cntc;
-		if (cntc == 2)
+		if (s[i] != c && inword == 0)
 		{
 			cnt++;
-			cntc = 0;
+			inword = 1;
 		}
+		else if (s[i] == c)
+			inword = 0;
 		++i;
 	}
+	if (inword == 1)
+		cnt++;
 	return (cnt);
 }
 
-static void	copiar(char const *s, int j, char *matriz, char c)
+static char	*copiar(char const *s, int j, char c)
 {
 	size_t	i;
+	char	*str;
 
 	i = 0;
 	while (s[j + i] != c)
+		++i;
+	str = (char *)malloc((i + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[j + i] != '\0' && s[j + i] != c)
 	{
-		matriz[i] = s[j];
+		str[i] = s[j + i];
 		++i;
 	}
+	str[i] = '\0';
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
@@ -62,7 +73,7 @@ char	**ft_split(char const *s, char c)
 	{
 		if (s[j] == c)
 		{
-			copiar(s, j, matriz[i], c);
+			matriz[i] = copiar(s, j, c);
 			++i;
 		}
 		++j;
