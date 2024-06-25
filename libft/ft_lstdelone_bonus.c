@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:48:17 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 13:09:52 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 22:18:23 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	del(lst -> content);
+	(*del)(lst -> content);
 	free(lst);
 }

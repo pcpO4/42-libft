@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 13:20:52 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 13:31:41 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 22:23:55 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!lst2)
 		{
 			ft_lstclear(&lst2, del);
+			free(lst2);
 			lst2 = NULL;
 		}
 		lst = aux;

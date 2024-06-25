@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:58:06 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 13:33:52 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 22:20:42 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*aux;
-
-	while (aux -> next)
+	while (lst)
 	{
-		aux = aux -> next;
-		f(lst -> content);
-		lst = aux;
+		(*f)(lst -> content);
+		lst = lst->next;
 	}
 }

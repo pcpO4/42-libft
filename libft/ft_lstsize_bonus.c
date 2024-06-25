@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 12:34:32 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 13:09:58 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 22:19:20 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	ft_lstsize(t_list *lst)
 	int	cnt;
 
 	cnt = 0;
-	while (lst -> next)
+	while (lst)
 	{
 		lst = lst -> next;
-		++cnt;
+		cnt++;
 	}
 	return (cnt);
 }
