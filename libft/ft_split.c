@@ -6,54 +6,66 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/24 12:42:21 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:44:36 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	contar(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
 	size_t	cnt;
+	size_t	cntc;
+	size_t	i;
 
 	cnt = 0;
-	if (!*s)
-		return (0);
-	while (*s)
+	i = 0;
+	cntc = 0;
+	while (s[i] != '\0')
 	{
-		while (*s == c)
-			++s;
-		if (*s)
-			++cnt;
-		while ((*s) && (*s != c))
-			++s;
+		if (s[i] == c)
+			++cntc;
+		if (cntc == 2)
+		{
+			cnt++;
+			cntc = 0;
+		}
+		++i;
 	}
 	return (cnt);
+}
+
+static void	copiar(char const *s, int j, char *matriz, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[j + i] != c)
+	{
+		matriz[i] = s[j];
+		++i;
+	}
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**matriz;
 	size_t	i;
-	size_t	cnt;
-
-	matriz = (char **)malloc((contar(s, c) + 1) * sizeof(char *));
-	if (!matriz || !s)
+	size_t	j;
+	
+	matriz = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!matriz)
 		return (NULL);
 	i = 0;
-	while (*s)
+	j = 0;
+	while (s[j] != '\0')
 	{
-		while (*s && *s == c)
-			++s;
-		if (*s)
+		if (s[j] == c)
 		{
-			if (!ft_strchr(s, c))
-				cnt = ft_strlen(s);
-			else
-				cnt = (ft_strchr(s, c) - s);
-			matriz[++i] = ft_substr(s, 0, cnt);
-			s += cnt;
+			copiar(s, j, matriz[i], c);
+			++i;
 		}
+		++j;
 	}
 	matriz[i] = NULL;
 	return (matriz);
