@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 19:28:17 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 20:11:23 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ static char	*copiar(const char *s, int j, char c)
 		str[i] = s[j + i];
 		++i;
 	}
-	str[i] = '\0';
 	return (str);
 }
 
@@ -82,15 +81,15 @@ char	**ft_split(char const *s, char c)
 	matriz[i] = NULL;
 	return (matriz);
 }
-/*#include <stdio.h>
+#include <stdio.h>
 int main()
 {
-	const char *s = ".ayudame..a.separar.esta.frase";
-	char **matriz = ft_split(s, '.');
+	const char *s = "split  ||this|for|me|||||!|";
+	char **matriz = ft_split(s, '|');
 	for (int i = 0; matriz[i] != NULL; ++i)
 	{
 		printf("%s\n", matriz[i]);
 		free(matriz[i]);
 	}
 	free(matriz);
-}*/
+}
