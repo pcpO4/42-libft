@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 21:56:31 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 22:57:58 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	j;
 
-	matriz = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+	matriz = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!matriz)
 		return (NULL);
 	i = 0;
