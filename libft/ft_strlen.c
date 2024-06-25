@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 19:50:30 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 22:54:41 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 23:04:57 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	ft_strlen(const char *s)
 		++i;
 	return (i);
 }
-/*#include <stdio.h>
+#include <stdio.h>
 #include <string.h>
 int main()
 {
-	printf("%d\n", strlen("Hola"));
-	printf("%d", ft_strlen("Hola"));
-}*/
+	int n = ft_strlen(NULL);
+	printf("%d\n", n);
+}

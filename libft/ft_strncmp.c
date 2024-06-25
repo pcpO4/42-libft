@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:54:25 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 18:16:54 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 23:08:34 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (n == 0)

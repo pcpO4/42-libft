@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 22:57:58 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 23:10:49 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ static char	*copiar(const char *s, int j, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**matriz;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 
 	matriz = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!matriz)

@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:40:12 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/24 21:21:36 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 23:10:31 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t			i;
+	int				i;
 	unsigned char	ch;
 
 	i = 0;

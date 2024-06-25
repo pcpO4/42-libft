@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 10:20:51 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/23 11:34:29 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 23:07:10 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t			litt;
-	size_t			i;
-	size_t			j;
+	int				litt;
+	int				i;
+	int				j;
 	char			*puntero;
 
 	litt = ft_strlen(little);

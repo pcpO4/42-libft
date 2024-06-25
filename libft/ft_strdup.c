@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 11:18:22 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 11:52:40 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 23:10:15 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strdup(const char *s)
 {
-	size_t	size;
-	size_t	i;
+	int		size;
+	int		i;
 	char	*str;
 
 	size = ft_strlen(s) + 1;
