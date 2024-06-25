@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 12:03:39 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 23:04:20 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 23:18:54 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	if (!s)
 		return (NULL);
