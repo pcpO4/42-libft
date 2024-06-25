@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:33:56 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/24 20:21:15 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 21:55:13 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	size_t	i;
 
 	i = 0;
+	if (dest == 0 && src == 0)
+		return (dest);
 	if ((size_t)dest - (size_t)src < n)
 	{
 		i = n - 1;

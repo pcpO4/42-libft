@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:55:14 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/24 20:21:00 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 21:54:12 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	d = (unsigned char *)dst;
 	s = (unsigned char *)src;
 	i = 0;
+	if (dst == 0 && src == 0)
+		return (dst);
 	while (i < n)
 	{
 		d[i] = s[i];
