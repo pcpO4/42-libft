@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 20:12:18 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 20:17:27 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static char	*copiar(const char *s, int j, char c)
 		str[i] = s[j + i];
 		++i;
 	}
+	str[i] = '\0';
 	return (str);
 }
 
