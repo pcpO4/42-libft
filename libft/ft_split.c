@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 18:44:36 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:46:01 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,4 @@ char	**ft_split(char const *s, char c)
 	matriz[i] = NULL;
 	return (matriz);
 }
+
