@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 19:03:32 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 19:28:17 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,16 @@ static size_t	count_words(char const *s, char c)
 			inword = 0;
 		++i;
 	}
-	if (inword == 1)
-		cnt++;
 	return (cnt);
 }
 
-static char	*copiar(char const *s, int j, char c)
+static char	*copiar(const char *s, int j, char c)
 {
 	size_t	i;
 	char	*str;
 
 	i = 0;
-	while (s[j + i] != c)
+	while (s[j + i] != '\0' && s[j + i] != c)
 		++i;
 	str = (char *)malloc((i + 1) * sizeof(char));
 	if (!str)
@@ -71,13 +69,28 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	while (s[j] != '\0')
 	{
-		if (s[j] == c)
+		if (s[j] != c)
 		{
 			matriz[i] = copiar(s, j, c);
 			++i;
+			while (s[j] != '\0' && s[j] != c)
+				++j;
 		}
-		++j;
+		else
+			++j;
 	}
 	matriz[i] = NULL;
 	return (matriz);
 }
+/*#include <stdio.h>
+int main()
+{
+	const char *s = ".ayudame..a.separar.esta.frase";
+	char **matriz = ft_split(s, '.');
+	for (int i = 0; matriz[i] != NULL; ++i)
+	{
+		printf("%s\n", matriz[i]);
+		free(matriz[i]);
+	}
+	free(matriz);
+}*/
