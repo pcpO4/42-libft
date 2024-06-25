@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 20:11:23 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/25 20:12:18 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	**ft_split(char const *s, char c)
 	matriz[i] = NULL;
 	return (matriz);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
 	const char *s = "split  ||this|for|me|||||!|";
@@ -92,4 +92,4 @@ int main()
 		free(matriz[i]);
 	}
 	free(matriz);
-}
+}*/
