@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 13:20:52 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 22:23:55 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/26 18:00:05 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,26 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*aux;
-	t_list	*lst2;
+	t_list	*nodo;
+	t_list	*lista;
+	void	*content;
 
-	lst2 = malloc(sizeof(t_list));
-	while (aux -> next)
+	if (!f || !del)
+		return (NULL);
+	lista = NULL;
+	while (lst)
 	{
-		aux = aux -> next;
-		lst2 = f(lst -> content);
-		if (!lst2)
+		content = (*f)(lst -> content);
+		nodo = ft_lstnew(content);
+		if (!nodo)
 		{
-			ft_lstclear(&lst2, del);
-			free(lst2);
-			lst2 = NULL;
+			(*del)(content);
+			ft_lstclear(&lista, del);
+			free(lista);
+			return (NULL);
 		}
-		lst = aux;
+		ft_lstadd_back(&lista, nodo);
+		lst = lst->next;
 	}
-	return (lst2);
+	return (lista);
 }

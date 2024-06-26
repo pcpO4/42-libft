@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 13:29:21 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 23:10:49 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/26 17:45:26 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,27 @@ static char	*copiar(const char *s, int j, char c)
 	return (str);
 }
 
+static void	*ft_free(char **matriz, int idx)
+{
+	int	i;
+
+	i = 0;
+	while (i < idx)
+	{
+		free(matriz[i]);
+		i++;
+	}
+	free(matriz);
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**matriz;
 	int		i;
 	int		j;
 
-	matriz = malloc((count_words(s, c) + 1) * sizeof(char *));
+	matriz = (char **)malloc((count_words(s, c) + 1) * sizeof(*matriz));
 	if (!matriz)
 		return (NULL);
 	i = 0;
@@ -72,6 +86,8 @@ char	**ft_split(char const *s, char c)
 		if (s[j] != c)
 		{
 			matriz[i] = copiar(s, j, c);
+			if (!matriz[i])
+				return (ft_free(matriz, i));
 			++i;
 			while (s[j] != '\0' && s[j] != c)
 				++j;
@@ -86,8 +102,8 @@ char	**ft_split(char const *s, char c)
 #include <stdio.h>
 int main()
 {
-	const char *s = "42_Seoul_Cadet";
-	char **matriz = ft_split(s, '_');
+	const char *s = "xxxxxxxxhello!";
+	char **matriz = ft_split(s, 'x');
 	for (int i = 0; matriz[i] != NULL; ++i)
 	{
 		printf("%s\n", matriz[i]);

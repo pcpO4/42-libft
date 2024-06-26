@@ -6,7 +6,7 @@
 #    By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/11 19:27:52 by pcervant          #+#    #+#              #
-#    Updated: 2024/06/25 17:41:53 by pcervant         ###   ########.fr        #
+#    Updated: 2024/06/26 18:12:19 by pcervant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ clean:
 	$(RM) $(OBJS)
 
 fclean:	clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS_OBJS)
 
 bonus: $(OBJS) $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJS) $(OBJ_BONUS)
