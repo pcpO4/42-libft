@@ -1,93 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: anggalle <anggalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/18 13:13:53 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/26 12:13:32 by pcervant         ###   ########.fr       */
+/*   Created: 2024/06/16 12:03:39 by pcervant          #+#    #+#             */
+/*   Updated: 2024/06/26 13:37:40 by anggalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <stdio.h>*/
 
-static int	count_words(long int nb)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
-	int	cnt;
-
-	i = 0;
-	cnt = 1;
-	if (nb < 0)
-		nb = -nb;
-	while (nb != 0)
-	{
-		nb = nb / 10;
-		++cnt;
-	}
-	return (cnt);
-}
-
-static char	*negativo(long int nb)
-{
-	int		i;
 	char	*str;
-	int		tam;
+	size_t	i;
+	size_t	s_len;
 
-	tam = count_words(nb);
-	str = malloc((tam + 2) * sizeof(char));
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (start > s_len || len == 0)
+		return (ft_strdup(""));
+	if (s_len - start < len)
+		len = s_len - start;
+	str = (char *)ft_calloc((len + 1), sizeof(char));
 	if (!str)
 		return (NULL);
-	str[0] = '-';
-	nb = -nb;
-	i = tam - 1;
-	while(i > 0)
+	i = 0;
+	while (i < len)
 	{
-		str[i] = (nb % 10 + 48);
-		nb = nb / 10;
-		i--;
+		str[i] = s[start + i];
+		i++;
 	}
-	str[tam + 1] = '\0';
 	return (str);
 }
-
-char	*ft_itoa(int n)
+/*#include <stdio.h>
+int main()
 {
-	char		*str;
-	int			i;
-	long int	nb;
-
-	nb = n;
-	if (nb < 0 || nb == -2147483648)
-		return (negativo(nb));
-	i = count_words(n) - 1;
-	str = malloc((count_words(nb) + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	if (nb == 0) 
-	{
-        str[0] = '0';
-        str[1] = '\0';
-        return str;
-    }
-	while(nb > 0)
-	{
-		str[i] = (nb%10 + '0');
-		nb = nb/10;
-		i--;
-	}
-	str[count_words(nb)] = '\0';
-	return (str);
-}
-
-#include <stdio.h>
-
-int	main()
-{
-	int n = -234;
-	char *str = ft_itoa(n);
-	printf("%s", str);
-	free(str);
-}
+	size_t n = 1844674407370955161;
+	printf("%s", ft_substr("hola", 0, n));
+}*/
