@@ -6,84 +6,88 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:13:53 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/24 23:21:11 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/26 12:13:32 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 /*#include <stdio.h>*/
 
-static int	tam(int n)
+static int	count_words(long int nb)
 {
-	int	valor;
+	int	i;
+	int	cnt;
 
-	valor = 0;
-	if (n == 0)
-		return (0);
-	if (n < 0)
+	i = 0;
+	cnt = 1;
+	if (nb < 0)
+		nb = -nb;
+	while (nb != 0)
 	{
-		++valor;
-		n = -n;
+		nb = nb / 10;
+		++cnt;
 	}
-	while (n > 0)
-	{
-		n = n / 10;
-		valor++;
-	}
-	return (valor);
+	return (cnt);
 }
 
-static char	*negativo(long n)
+static char	*negativo(long int nb)
 {
 	int		i;
 	char	*str;
-	size_t	len;
+	int		tam;
 
-	str = (char *)malloc((tam(n) + 1) * sizeof(char));
+	tam = count_words(nb);
+	str = malloc((tam + 2) * sizeof(char));
 	if (!str)
 		return (NULL);
 	str[0] = '-';
-	len = tam(n);
-	n = -n;
-	i = (len - 1);
-	while ((n != 0))
+	nb = -nb;
+	i = tam - 1;
+	while(i > 0)
 	{
-		str[i] = (n % 10) + '0';
-		n /= 10;
+		str[i] = (nb % 10 + 48);
+		nb = nb / 10;
 		i--;
 	}
-	str[len] = '\0';
+	str[tam + 1] = '\0';
 	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		i;
-	long	nb;
+	char		*str;
+	int			i;
+	long int	nb;
 
 	nb = n;
-	str = (char *)ft_calloc((tam(nb) + 1), sizeof(char));
+	if (nb < 0 || nb == -2147483648)
+		return (negativo(nb));
+	i = count_words(n) - 1;
+	str = malloc((count_words(nb) + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	if (nb < 0)
-		return (negativo(nb));
-	i = tam(nb) - 1;
-	while (i >= 0)
+	if (nb == 0) 
 	{
-		str[i] = (nb % 10 + '0');
-		nb = nb / 10;
-		++i;
+        str[0] = '0';
+        str[1] = '\0';
+        return str;
+    }
+	while(nb > 0)
+	{
+		str[i] = (nb%10 + '0');
+		nb = nb/10;
+		i--;
 	}
-	str[i] = '\0';
+	str[count_words(nb)] = '\0';
 	return (str);
 }
 
-/*#include <stdio.h>
+#include <stdio.h>
 
 int	main()
 {
-	char *str = ft_itoa(-1);
+	int n = -234;
+	char *str = ft_itoa(n);
 	printf("%s", str);
 	free(str);
-}*/
+}

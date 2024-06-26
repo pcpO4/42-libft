@@ -6,7 +6,7 @@
 /*   By: pcervant <pcervant@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:33:56 by pcervant          #+#    #+#             */
-/*   Updated: 2024/06/25 22:05:40 by pcervant         ###   ########.fr       */
+/*   Updated: 2024/06/26 11:11:15 by pcervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*s;
 	size_t	i;
 
-	d = (char*)dst;
-	s = (char*)src;
+	d = (char *)dst;
+	s = (char *)src;
 	i = 0;
 	if (d == s)
 		return (d);
@@ -27,14 +27,14 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		i = len;
 		while (i--)
-			((char*)d)[i] = ((char*)s)[i];
+			((char *)d)[i] = ((char *)s)[i];
 	}
 	else
 	{
 		i = 0;
 		while (i < len)
 		{
-			((char*)d)[i] = ((char*)s)[i];
+			((char *)d)[i] = ((char *)s)[i];
 			i++;
 		}
 	}
